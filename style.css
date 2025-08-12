@@ -1,0 +1,377 @@
+@import url('https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap');
+html{
+  --moss: #4D693A;
+  --black: black;
+  --gold: #d4af37;   
+  --gold-strong: #b8860b; 
+  --ochre: #C1730E;  
+  --nav-height: 96px;
+  --footer-height: 96px;
+  --pillar-width: 220px; 
+  --ivy-border-width: 36px;
+  font-family: 'MedievalSharp', cursive;
+}
+
+
+
+
+* { box-sizing: border-box; }
+html,body { height:100%; margin:0; padding:0; background: var(--moss); color:var(--paper); }
+
+
+.navbar{
+  height: var(--nav-height);
+  min-height: var(--nav-height);
+  background: var(--gold-strong);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap: 48px;
+  padding: 0 24px;
+  box-shadow: 0 6px 0 rgba(0,0,0,0.12) inset;
+}
+
+.navbar a{
+  color:#222;
+  font-weight:700;
+  font-size:1.35rem;
+  text-decoration:none;
+  letter-spacing: 0.6px;
+}
+.navbar a.brand{
+  text-transform:uppercase;
+  font-size:1.4rem;
+}
+
+
+.main{
+  flex:1 1 auto;
+  display:flex;
+  align-items:stretch;
+  justify-content:stretch;
+  padding: 28px 14px;
+}
+
+
+.pillars{
+  display:grid;
+  grid-template-columns: var(--pillar-width) 1fr var(--pillar-width);
+  flex:1;
+  gap:24px;
+  align-items:stretch;
+  width:100%;
+  max-width:1200px;
+  margin: 0 auto; 
+}
+
+
+.pillar{
+  background: var(--ochre);
+  width:100%;
+  height:100%;
+  box-shadow: inset -6px 0 12px rgba(0,0,0,0.12);
+}
+
+
+.content{
+  padding: 26px;
+  overflow:auto;
+  text-align:center;
+  
+}
+
+
+h1{ font-size:2rem; margin:12px 0; color:var(--paper);}
+h5{ font-size:1.05rem; margin:8px 0 18px; color:var(--paper); font-weight:400;}
+h6{ font-size:0.95rem; color:var(--paper); opacity:0.95; margin-bottom:6px;}
+.lead{ line-height:1.55; color:var(--paper); margin: 10px 0 20px; }
+
+
+
+.styled-image{
+  display:block;
+  max-width:100%;
+  width:50%;          
+  height:auto;
+  margin: 0 auto;
+  border-radius: 12px;
+  background: var(--paper); 
+  box-shadow: 0 8px 18px rgba(0,0,0,0.35);
+  border: 6px solid transparent;
+}
+
+
+.logo { width:50%; }   
+.florist { width:65%; }
+.bouquet_1, .bouquet_2, .bouquet_3, .bouquet_4, .bouquet_5 {
+  width: 21%;
+  max-width: 100%;
+  margin: 0 auto;
+  border-radius: 12px;
+  box-shadow: 0 8px 18px rgba(0,0,0,0.35);
+}
+.bouquet-container {
+  display: flex;
+  justify-content: center; /* centers the row horizontally */
+  gap: 10px; /* space between images */
+  padding: 15px; /* optional: some padding around */
+}
+
+.bouquet_1, .bouquet_2, .bouquet_3, .bouquet_4, .bouquet_5 {
+  width: 21%;
+  max-width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 8px 18px rgba(0,0,0,0.35);
+  /* margin: 0 auto;  remove this, flex handles spacing */
+}
+
+.bouquet-container img:hover {
+  transform: scale(1.60); /* grow by 10% */
+  box-shadow: 0 15px 60px rgba(0,0,0,0.6); /* stronger shadow */
+  z-index: 1000; /* bring on top */
+  position: relative; /* for z-index to work */
+}
+
+.bouquet-container img {
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  cursor: pointer;
+}
+
+@media (max-width: 640px) {
+  .bouquet-container {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto auto auto;
+    gap: 15px;
+    max-width: 340px;
+    margin: 0 auto;
+    justify-items: center;
+  }
+
+  .bouquet_1 { grid-column: 1 / 2; grid-row: 1 / 2; }
+  .bouquet_2 { grid-column: 2 / 3; grid-row: 1 / 2; }
+  .bouquet_3 { grid-column: 1 / 2; grid-row: 2 / 3; }
+  .bouquet_4 { grid-column: 2 / 3; grid-row: 2 / 3; }
+
+  .bouquet_5 {
+    grid-column: 1 / 3;
+    grid-row: 3 / 4;
+    justify-self: center;
+  }
+
+  .bouquet_1,
+  .bouquet_2,
+  .bouquet_3,
+  .bouquet_4,
+  .bouquet_5 {
+    width: 150px !important;
+    height: auto !important;
+    margin: 0 !important;
+    border-radius: 12px;
+    box-shadow: 0 8px 18px rgba(0,0,0,0.35);
+    transform: none !important;
+    z-index: auto !important;
+  }
+}
+
+
+.bouquet-container {
+  overflow: visible; /* let scaled images grow beyond container bounds */
+  position: relative; /* helps with z-index context */
+}
+
+.bouquet_1 {
+  margin-left: 20px; /* space on left side */
+}
+
+.bouquet_5 {
+  margin-right: 20px; /* space on right side */
+}
+
+.content, .pillars {
+  overflow: visible;
+  position: relative; /* for z-index context */
+}
+
+.bouquet_1:hover {
+  transform-origin: left center;
+  transform: scale(1.25);
+  z-index: 1000;
+  position: relative;
+}
+
+.bouquet_5:hover {
+  transform-origin: right center;
+  transform: scale(1.25);
+  z-index: 1000;
+  position: relative;
+}
+
+.bouquet_2:hover,
+.bouquet_3:hover,
+.bouquet_4:hover {
+  transform-origin: center center;
+  transform: scale(1.25);
+  z-index: 1000;
+  position: relative;
+}
+
+
+.plant_1, .plant_2, .plant_3, .plant_4, .plant_5 {
+  width: 21%;
+  max-width: 100%;
+  margin: 0 auto;
+  border-radius: 12px;
+  box-shadow: 0 8px 18px rgba(0,0,0,0.35);
+}
+.plant-container {
+  display: flex;
+  justify-content: center; /* centers the row horizontally */
+  gap: 10px; /* space between images */
+  padding: 15px; /* optional: some padding around */
+}
+
+.plant_1, .plant_2, .plant_3, .plant_4, .plant_5 {
+  width: 21%;
+  max-width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 8px 18px rgba(0,0,0,0.35);
+  /* margin: 0 auto;  remove this, flex handles spacing */
+}
+
+.plant-container img:hover {
+  transform: scale(1.60); /* grow by 10% */
+  box-shadow: 0 15px 60px rgba(0,0,0,0.6); /* stronger shadow */
+  z-index: 1000; /* bring on top */
+  position: relative; /* for z-index to work */
+}
+
+.plant-container img {
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  cursor: pointer;
+}
+
+@media (max-width: 640px) {
+  .plant-container {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto auto auto;
+    gap: 15px;
+    max-width: 340px;
+    margin: 0 auto;
+    justify-items: center;
+  }
+
+  .plant_1 { grid-column: 1 / 2; grid-row: 1 / 2; }
+  .plant_2 { grid-column: 2 / 3; grid-row: 1 / 2; }
+  .plant_3 { grid-column: 1 / 2; grid-row: 2 / 3; }
+  .plant_4 { grid-column: 2 / 3; grid-row: 2 / 3; }
+
+  .plant_5 {
+    grid-column: 1 / 3;
+    grid-row: 3 / 4;
+    justify-self: center;
+  }
+
+  .plant_1,
+  .plant_2,
+  .plant_3,
+  .plant_4,
+  .plant_5 {
+    width: 150px !important;
+    height: auto !important;
+    margin: 0 !important;
+    border-radius: 12px;
+    box-shadow: 0 8px 18px rgba(0,0,0,0.35);
+    transform: none !important;
+    z-index: auto !important;
+  }
+}
+
+
+.plant-container {
+  overflow: visible; /* let scaled images grow beyond container bounds */
+  position: relative; /* helps with z-index context */
+}
+
+.plant_1 {
+  margin-left: 20px; /* space on left side */
+}
+
+.plant_5 {
+  margin-right: 20px; /* space on right side */
+}
+
+.content, .pillars {
+  overflow: visible;
+  position: relative; /* for z-index context */
+}
+
+.plant_1:hover {
+  transform-origin: left center;
+  transform: scale(1.25);
+  z-index: 1000;
+  position: relative;
+}
+
+.plant_5:hover {
+  transform-origin: right center;
+  transform: scale(1.25);
+  z-index: 1000;
+  position: relative;
+}
+
+.plant_2:hover,
+.plant_3:hover,
+.plant_4:hover {
+  transform-origin: center center;
+  transform: scale(1.25);
+  z-index: 1000;
+  position: relative;
+}
+
+
+
+
+
+.footer{
+  height: var(--footer-height);
+  min-height: var(--footer-height);
+  background: var(--gold-strong);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:18px;
+  padding: 12px 20px;
+  flex-shrink:0;
+  border-top: 2px solid rgba(0,0,0,0.06);
+}
+
+.footer a{
+  color:#222;
+  text-decoration:none;
+  font-weight:700;
+  font-size:1.1rem;
+}
+
+
+@media (max-width: 940px){
+  .pillars{ grid-template-columns: 80px 1fr 80px; gap:14px; }
+  .navbar a, .footer a { font-size:1.05rem; }
+  .navbar { gap:18px; }
+}
+@media (max-width: 640px){
+  .pillars{ grid-template-columns: 40px 1fr 40px; gap:8px; }
+  .logo{ width:70%; }
+}
+
+a {
+  color: black; 
+  text-decoration: none; 
+  transition: color 0.3s ease; 
+}
+
+a:hover {
+  color: #FEFEFA; 
+  background-color: black;
+}
